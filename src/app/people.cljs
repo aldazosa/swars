@@ -2,7 +2,8 @@
   (:require
    [re-frame.core :refer [reg-sub]]
    [app.common :refer [<sub]]
-   ["@smooth-ui/core-sc" :refer [Box Typography]]))
+   ["@smooth-ui/core-sc" :refer [Box Typography]]
+   ["styled-icons/fa-solid/BirthdayCake" :refer [BirthdayCake]]))
 
 
 (defn portrait-url
@@ -26,18 +27,18 @@
 ;;;;;;;;;;;;
 
 (defn character-card
-  [character]
+  [{:keys [name image]}]
   [:> Box  ;; card
    [:> Box ;; image
     {:class            "image-card"
-     :background-image (portrait-url (:image character))
+     :background-image (portrait-url image)
      :min-height       "250px"
-     :alt              (:name character)}]
+     :alt              name}]
 
    [:> Box ;; name
     [:> Typography {:variant     "h6"
                     :font-weight 700}
-     (:name character)]]
+     name]]
 
    [:> Box ;; birth year
     ]
