@@ -5,6 +5,11 @@
    ["@smooth-ui/core-sc" :refer [Box Typography]]))
 
 
+(defn portrait-url
+  [image]
+  (str "url(/img/" (or image "unknown-person.png") ")"))
+
+
 ;;;;;;;;;;;;;;;;;;;
 ;; Suscripciones ;;
 ;;;;;;;;;;;;;;;;;;;
@@ -16,7 +21,6 @@
     (vals (get-in db [:people]))))
 
 
-
 ;;;;;;;;;;;;
 ;; Vistas ;;
 ;;;;;;;;;;;;
@@ -25,7 +29,9 @@
   [character]
   [:> Box  ;; card
    [:> Box ;; image
-    ]
+    {:background-image (portrait-url (:image character))
+     :min-height       "250px"
+     :alt              (:name character)}]
 
    [:> Box ;; name
     [:> Typography {:variant     "h6"
