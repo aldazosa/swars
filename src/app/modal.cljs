@@ -20,6 +20,28 @@
     (get db :active-character)))
 
 
+(reg-sub
+  :quote
+  (fn [db [_ character-id]]
+    (get-in db [:quotes character-id])))
+
+
+(reg-sub
+  :appears-in
+  (fn [db [_ character-id]]
+    (let [character (get-in db [:people character-id])
+          film-ids  (map
+                      (comp
+                        int
+                        second
+                        #(re-matches #"https://swapi.co/api/films/(\d+)/" %))
+                      (:films character))]
+      (->> (get db :films)
+           (keep (fn [[k v]]
+                   (when (some #{k} film-ids)
+                     (:title v))))))))
+
+
 ;;;;;;;;;;;;;
 ;; Eventos ;;
 ;;;;;;;;;;;;;
@@ -43,18 +65,34 @@
     (assoc db :active-character character)))
 
 
+;;;;;;;;;;;;
+;; Vistas ;;
+;;;;;;;;;;;;
+
 (defn modal []
-  (let [{:keys [name]} (<sub [:active-character])]
+  (let [{:keys [name id]} (<sub [:active-character])
+        quote             (<sub [:quote id])]
     [:> Modal {:opened   (<sub [:show-modal])
                :on-close #(>evt [:close-modal])}
      [:> ModalDialog
       [:> ModalContent
-       [:> Typography {:p       15
+       [:> Typography {:pt      15
+                       :pl      15
                        :variant "h4"}
         name]
        [:> ModalBody
+        [:> Box {:pb 2}
+         [:> Typography {:style       {:font-style "italic"}
+                         :pb          2
+                         :font-family "Consolas"}
+          (str "-- " quote)]]
         [:> Box
-         "El cuerpo"]]
+         [:> Typography {:variant "h6"}
+          "Aparece en:"]
+         [:ul
+          (for [film (<sub [:appears-in id])]
+            [:li film])]]]
+
        [:> ModalFooter
         [:> Box
          [:> Button {:variant  "light"
