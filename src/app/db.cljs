@@ -135,6 +135,37 @@
    :height     "66"})
 
 
+(def obi-wan
+  {:id 10
+   :mass       "77",
+   :birth_year "57BBY",
+   :skin_color "fair",
+   :name       "Obi-Wan Kenobi",
+   :species    ["https://swapi.co/api/species/1/"],
+   :created    "2014-12-10T16:16:29.192000Z",
+   :edited     "2014-12-20T21:17:50.325000Z",
+   :films
+   ["https://swapi.co/api/films/2/"
+    "https://swapi.co/api/films/5/"
+    "https://swapi.co/api/films/4/"
+    "https://swapi.co/api/films/6/"
+    "https://swapi.co/api/films/3/"
+    "https://swapi.co/api/films/1/"],
+   :url        "https://swapi.co/api/people/10/",
+   :hair_color "auburn, white",
+   :starships
+   ["https://swapi.co/api/starships/48/"
+    "https://swapi.co/api/starships/59/"
+    "https://swapi.co/api/starships/64/"
+    "https://swapi.co/api/starships/65/"
+    "https://swapi.co/api/starships/74/"],
+   :gender     "male",
+   :vehicles   ["https://swapi.co/api/vehicles/38/"],
+   :eye_color  "blue-gray",
+   :homeworld  "https://swapi.co/api/planets/20/",
+   :height     "182"})
+
+
 (def initial-app-db {:quotes  {5  "\"Help me, Obi-Wan Kenobi. You’re my only hope.\""
                                20 "\"Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering.\""
                                4  "\"I am altering the deal, pray I don't alter it any further.\""
@@ -146,6 +177,7 @@
                                3  r2d2
                                4  vader
                                5  leia
+                               10 obi-wan
                                20 yoda}
                      :films   {1 {:release_date "1977-05-25",
                                   :director     "George Lucas",
