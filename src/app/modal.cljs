@@ -35,4 +35,6 @@
        "El cuerpo"]]
      [:> ModalFooter
       [:> Box
-       "El pie"]]]]])
+       [:> Button {:variant  "light"
+                   :on-click #(>evt [:close-modal])}
+        "Cerrar"]]]]]])
