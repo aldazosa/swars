@@ -27,7 +27,7 @@
 ;;;;;;;;;;;;
 
 (defn character-card
-  [{:keys [name image]}]
+  [{:keys [name image birth_year]}]
   [:> Box  ;; card
    [:> Box ;; image
     {:class            "image-card"
@@ -40,8 +40,14 @@
                     :font-weight 700}
      name]]
 
-   [:> Box ;; birth year
-    ]
+   [:> Box {:pl      2  ;; birth year
+            :pb      2
+            :display "flex"}
+    [:> Box {:display     "flex"
+             :align-items "center"
+             :pl          5}
+     [:> BirthdayCake {:size 16}]
+     [:> Box {:pl 10} birth_year]]]
 
    [:> Box ;; homeworld
     ]])
