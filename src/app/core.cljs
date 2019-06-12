@@ -4,8 +4,8 @@
             [app.db]
             [app.common :refer [<sub >evt]]
             [app.theme :refer [swars-theme]]
+            [app.people :refer [people-page]]
             ["@smooth-ui/core-sc" :refer [Normalize ThemeProvider Button Grid Row Col]]))
-
 
 
 (defn app
@@ -13,8 +13,7 @@
   [:<>
    [:> Normalize]
    [:> ThemeProvider {:theme swars-theme}
-    [:> Button {:on-click #(js/alert "Hi there!")}
-     "Click me"]]])
+    [people-page]]])
 
 
 (defn ^:dev/after-load start
