@@ -3,7 +3,7 @@
    [re-frame.core :refer [reg-sub]]
    [app.common :refer [<sub >evt]]
    [app.modal :refer [modal]]
-   ["@smooth-ui/core-sc" :refer [Box Typography]]
+   ["@smooth-ui/core-sc" :refer [Box Typography Button]]
    ["styled-icons/fa-solid/BirthdayCake" :refer [BirthdayCake]]
    ["styled-icons/boxicons-regular/Planet" :refer [Planet]]))
 
@@ -37,7 +37,8 @@
 
 (defn character-card
   [{:keys [name image birth_year homeworld] :as char}]
-  [:> Box  {:as       "a"
+  [:> Box  {:class    "character-card"
+            :as       "a"
             :on-click #(do
                          (>evt [:open-modal])
                          (>evt [:set-active-character char]))}
@@ -86,10 +87,11 @@
     [:<>
      [:> Box {:display         "flex"
               :justify-content "center"}
-      [:> Typography {:variant     "h2"
-                      :py          20
-                      :font-weight 700}
-       "Personajes"]]
+      [:> Box
+       [:> Typography {:variant     "h1"
+                       :py          20
+                       :font-weight 700}
+        "Personajes"]]]
 
      [character-list chars]
 
