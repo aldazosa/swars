@@ -2,6 +2,7 @@
   (:require
    [re-frame.core :refer [reg-sub]]
    [app.common :refer [<sub]]
+   [app.modal :refer [modal]]
    ["@smooth-ui/core-sc" :refer [Box Typography]]
    ["styled-icons/fa-solid/BirthdayCake" :refer [BirthdayCake]]
    ["styled-icons/boxicons-regular/Planet" :refer [Planet]]))
