@@ -36,9 +36,11 @@
 ;;;;;;;;;;;;
 
 (defn character-card
-  [{:keys [name image birth_year homeworld]}]
+  [{:keys [name image birth_year homeworld] :as char}]
   [:> Box  {:as       "a"
-            :on-click #(>evt [:open-modal])}
+            :on-click #(do
+                         (>evt [:open-modal])
+                         (>evt [:set-active-character char]))}
    [:> Box ;; image
     {:class            "image-card"
      :background-image (portrait-url image)
