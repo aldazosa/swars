@@ -153,14 +153,7 @@
     "https://swapi.co/api/films/1/"],
    :url        "https://swapi.co/api/people/10/",
    :hair_color "auburn, white",
-   :starships
-   ["https://swapi.co/api/starships/48/"
-    "https://swapi.co/api/starships/59/"
-    "https://swapi.co/api/starships/64/"
-    "https://swapi.co/api/starships/65/"
-    "https://swapi.co/api/starships/74/"],
    :gender     "male",
-   :vehicles   ["https://swapi.co/api/vehicles/38/"],
    :eye_color  "blue-gray",
    :homeworld  "https://swapi.co/api/planets/20/",
    :height     "182"})
