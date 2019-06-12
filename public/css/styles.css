@@ -25,12 +25,18 @@ a:hover {
   padding-bottom: 50px;
 }
 
-.persona-card {
+.character-card {
     background:          "white";
     border-radius:       "10px";
     cursor:              "pointer";
     transition-property: "transform, box-shadow";
     transition-duration: ".30s";
+}
+
+.character-card:hover {
+    box-shadow: 0 30px 60px -12px rgba(50,50,93,.25),
+                0 18px 36px -18px rgba(0,0,0,.3);
+    transform: translateY(-2px);
 }
 
 .image-card {
