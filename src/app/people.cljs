@@ -41,7 +41,10 @@
 
 (defn character-list
   [characters]
-  [:> Box
+  [:> Box {:style {:display               "grid"
+                   :grid-template-columns "repeat(auto-fill, minmax(250px, 1fr))"
+                   :grid-gap              "20 px"
+                   :padding-bottom        "50px"}}
    (for [character characters]
      ^{:key (:id character)}
      [character-card character])])
