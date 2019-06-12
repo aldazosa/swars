@@ -308,7 +308,21 @@
                                    :population      "unknown",
                                    :terrain         "unknown",
                                    :url             "https://swapi.co/api/planets/28/",
-                                   :rotation_period "0"}}})
+                                   :rotation_period "0"}
+                               20 {:surface_water   "unknown",
+                                   :climate         "temperate",
+                                   :residents       ["https://swapi.co/api/people/10/"],
+                                   :orbital_period  "unknown",
+                                   :name            "Stewjon",
+                                   :diameter        "0",
+                                   :created         "2014-12-10T16:16:26.566000Z",
+                                   :gravity         "1 standard",
+                                   :edited          "2014-12-20T20:58:18.452000Z",
+                                   :films           [],
+                                   :population      "unknown",
+                                   :terrain         "grass",
+                                   :url             "https://swapi.co/api/planets/20/",
+                                   :rotation_period "unknown"}}})
 
 
 (rf/reg-event-db
