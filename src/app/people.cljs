@@ -5,15 +5,38 @@
    ["@smooth-ui/core-sc" :refer [Box Typography]]))
 
 
+;;;;;;;;;;;;;;;;;;;
+;; Suscripciones ;;
+;;;;;;;;;;;;;;;;;;;
+
+
 (reg-sub
   :characters
   (fn [db _]
-   (vals (get-in db [:people]))))
+    (vals (get-in db [:people]))))
 
+
+
+;;;;;;;;;;;;
+;; Vistas ;;
+;;;;;;;;;;;;
 
 (defn character-card
   [character]
-  [:> Box (:name character)])
+  [:> Box  ;; card
+   [:> Box ;; image
+    ]
+
+   [:> Box ;; name
+    [:> Typography {:variant     "h6"
+                    :font-weight 700}
+     (:name character)]]
+
+   [:> Box ;; birth year
+    ]
+
+   [:> Box ;; homeworld
+    ]])
 
 
 (defn character-list
