@@ -52,11 +52,12 @@
     (assoc db :show-modal true)))
 
 
-(reg-event-fx
+(reg-event-db
   :close-modal
-  (fn [{:keys [db]} _]
-    {:db       (dissoc db :show-modal)
-     :dispatch [:set-active-character nil]}))
+  (fn [db _]
+    (-> db
+        (dissoc :set-active-character)
+        (dissoc :show-modal))))
 
 
 (reg-event-db
@@ -91,6 +92,7 @@
           "Aparece en:"]
          [:ul
           (for [film (<sub [:appears-in id])]
+            ^{:key film}
             [:li film])]]]
 
        [:> ModalFooter
