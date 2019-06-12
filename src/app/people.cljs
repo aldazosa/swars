@@ -1,7 +1,7 @@
 (ns app.people
   (:require
    [re-frame.core :refer [reg-sub]]
-   [app.common :refer [<sub]]
+   [app.common :refer [<sub >evt]]
    [app.modal :refer [modal]]
    ["@smooth-ui/core-sc" :refer [Box Typography]]
    ["styled-icons/fa-solid/BirthdayCake" :refer [BirthdayCake]]
@@ -37,7 +37,8 @@
 
 (defn character-card
   [{:keys [name image birth_year homeworld]}]
-  [:> Box  ;; card
+  [:> Box  {:as       "a"
+            :on-click #(>evt [:open-modal])}
    [:> Box ;; image
     {:class            "image-card"
      :background-image (portrait-url image)
@@ -49,7 +50,7 @@
                     :font-weight 700}
      name]]
 
-   [:> Box {:pl      2  ;; birth year
+   [:> Box {:pl      2 ;; birth year
             :pb      2
             :display "flex"}
     [:> Box {:display     "flex"
