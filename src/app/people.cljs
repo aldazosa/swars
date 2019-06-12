@@ -23,6 +23,13 @@
     (vals (get-in db [:people]))))
 
 
+(reg-sub
+  :planet
+  (fn [db [_ url]]
+    (let [[_ id] (re-matches #"https://swapi.co/api/planets/(\d+)/" url)]
+      (get-in db [:planets (int id)]))))
+
+
 ;;;;;;;;;;;;
 ;; Vistas ;;
 ;;;;;;;;;;;;
@@ -57,7 +64,8 @@
              :align-items "center"
              :pl          5}
      [:> Planet {:size 16}]
-     [:> Box {:pl 10} homeworld]]]])
+     [:> Box {:pl 10}
+      (:name (<sub [:planet homeworld]))]]]])
 
 
 (defn character-list
