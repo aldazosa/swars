@@ -164,7 +164,8 @@
                                4  "\"I am altering the deal, pray I don't alter it any further.\""
                                1  "\"I’m Luke Skywalker. I’m here to rescue you.\""
                                2  "\"Sir, the possibility of successfully navigating an asteroid field is approximately three thousand seven hundred and twenty to one!\""
-                               3  "\"Beep Bloop Blop Bleep Boop\""}
+                               3  "\"Beep Bloop Blop Bleep Boop\""
+                               10 "\"So uncivilized.\""}
                      :people  {1  luke
                                2  c3p0
                                3  r2d2
