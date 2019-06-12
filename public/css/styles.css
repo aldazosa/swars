@@ -34,14 +34,6 @@ a:hover {
 }
 
 .image-card {
-    border-radius: "10px 10px 0px 0px";
-    max-width: "100%";
+    border-radius: 10px 10px 0px 0px;
     background-size: cover;
-}
-
-
-.img-card {
-  border-radius: 10px 10px 0px 0px;
-  max-width: 100%;
-  background-size: cover;
 }

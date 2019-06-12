@@ -29,8 +29,7 @@
   [character]
   [:> Box  ;; card
    [:> Box ;; image
-    {:style {:border-radius "10px 10px 0px 0px";
-             :background-size "cover"}
+    {:class            "image-card"
      :background-image (portrait-url (:image character))
      :min-height       "250px"
      :alt              (:name character)}]
