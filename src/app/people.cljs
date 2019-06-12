@@ -3,7 +3,8 @@
    [re-frame.core :refer [reg-sub]]
    [app.common :refer [<sub]]
    ["@smooth-ui/core-sc" :refer [Box Typography]]
-   ["styled-icons/fa-solid/BirthdayCake" :refer [BirthdayCake]]))
+   ["styled-icons/fa-solid/BirthdayCake" :refer [BirthdayCake]]
+   ["styled-icons/boxicons-regular/Planet" :refer [Planet]]))
 
 
 (defn portrait-url
@@ -27,7 +28,7 @@
 ;;;;;;;;;;;;
 
 (defn character-card
-  [{:keys [name image birth_year]}]
+  [{:keys [name image birth_year homeworld]}]
   [:> Box  ;; card
    [:> Box ;; image
     {:class            "image-card"
@@ -49,8 +50,14 @@
      [:> BirthdayCake {:size 16}]
      [:> Box {:pl 10} birth_year]]]
 
-   [:> Box ;; homeworld
-    ]])
+   [:> Box {:pl      2
+            :pb      2
+            :display "flex"}
+    [:> Box {:display     "flex"
+             :align-items "center"
+             :pl          5}
+     [:> Planet {:size 16}]
+     [:> Box {:pl 10} homeworld]]]])
 
 
 (defn character-list
