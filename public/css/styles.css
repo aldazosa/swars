@@ -1,0 +1,48 @@
+body {
+    color: #2A2435;
+    background: #ECEFEF;
+}
+
+::selection {
+    color: #ECEFEF;
+    background: #5a7298;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #5a7298;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #8D9B9E;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding-bottom: 50px;
+}
+
+
+.persona-card {
+    background:          "white";
+    border-radius:       "10px";
+    cursor:              "pointer";
+    transition-property: "transform, box-shadow";
+    transition-duration: ".30s";
+}
+
+.image-card {
+    border-radius: "10px 10px 0px 0px";
+    max-width: "100%";
+    background-size: cover;
+}
+
+
+.img-card {
+  border-radius: 10px 10px 0px 0px;
+  max-width: 100%;
+  background-size: cover;
+}
